@@ -6,7 +6,7 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
-  Tags.findAll({
+  Tag.findAll({
     include: [Product]
   })
   .then((tags)=>res.json(tags))
@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
-  Tags.update(req.body, {
+  Tag.update(req.body, {
     where: {
       id:req.params.id
     },
